@@ -1,0 +1,42 @@
+version: "2.3"
+
+services:
+
+  {{cookiecutter.app_name}}:
+    image: {{cookiecutter.app_name}}
+    container_name: {{cookiecutter.app_name}}
+    build:
+      context: ./services
+      dockerfile: {{cookiecutter.app_name}}/Dockerfile
+      args:
+        - SAMPLE_ARG=$SAMPLE_ARG
+    ports:
+      - "8554:8554"
+    environment:
+      - DISPLAY=$DISPLAY
+    runtime: nvidia
+    ipc: host
+    shm_size: 1g
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      stack:
+        soft: 67108864
+        hard: 67108864
+    volumes:
+      # - tmpfs:/tmpfs
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $LOCAL_DIR:$DOCKER_DIR
+      - ./services/{{cookiecutter.app_name}}/app:/app
+      
+    # logging:
+      # driver: none
+
+
+
+volumes:
+  tmpfs:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs

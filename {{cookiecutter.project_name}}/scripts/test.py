@@ -1,0 +1,1 @@
+print(f"Welcome to {{cookiecutter.project_name}}")

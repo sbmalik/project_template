@@ -1,0 +1,7 @@
+{
+    "project_name": "Basic-Project",
+    "project_description": "This is a basic project",
+    "app_name": "sample_app",
+    "local_directory_to_mount": "$((CWD))/mount_dir",
+    "docker_directory_for_mount": "/data"
+}

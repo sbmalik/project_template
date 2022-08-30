@@ -1,0 +1,7 @@
+version: "2.3"
+
+# services:
+
+  # {{cookiecutter.app_name}}:
+    # entrypoint: ["echo", "Service is disabled"]
+    # command: ""
